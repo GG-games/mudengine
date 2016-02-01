@@ -1,6 +1,6 @@
 'use strict';
 
-var Entity = require('Entity');
+var Entity = require_local('Entity');
 
 class GameObject extends Entity {
 
@@ -10,6 +10,7 @@ class GameObject extends Entity {
     this.Weight = 0;
     this.Light = 0;
     this.Moveable = false;
+    this.Visible = true;
   }
 
   Delete() {

@@ -1,15 +1,15 @@
 'use strict';
 
-var Item = requre('Item');
+var Item = require_local('Items/Item');
 
 class Container extends Item {
 
   constructor() {
     super();
 
+    this.Name = 'Container';
     this.contents = [];
     this.MaxItems = 10;
-    this.TotalWeight = 0;
   }
 
   get Contents() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Entity = require('Entity'),
+var Entity = require_local('Entity'),
 
 Race = [
   'Human',
@@ -25,12 +25,16 @@ class Mobile extends Entity {
     }
 
     this.Race = Race.Human;
+    this.Female = false;
 
     this.Stats = [];
     this.Skills = [];
 
     this.Hunger = 0;
     this.Thirst = 0;
+
+    this.Weight = 0;
+    this.Height = 0;
 
     this.Hidden = false;
     this.Paralyzed = false;

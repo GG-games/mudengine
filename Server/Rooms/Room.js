@@ -1,6 +1,6 @@
 'use strict';
 
-var Entity = require('Entity');
+var Entity = require_local('Entity');
 
 RoomFlags: [
   'DARK', // Probably remove this for light level instead
@@ -19,7 +19,6 @@ class Room extends Entity {
   constructor() {
     super();
 
-    this.ID = 0; // Room ID in the database
     this.ZoneID = 0; // Zone ID in the database
     this.Type = 0; // Room Type
 
