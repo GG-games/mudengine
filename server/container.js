@@ -3,9 +3,14 @@
 var Item = requre('./item');
 
 class Container extends Item {
-  this.contents = [];
-  this.MaxItems = 10;
-  this.TotalWeight = 0;
+
+  constructor() {
+    super();
+
+    this.contents = [];
+    this.MaxItems = 10;
+    this.TotalWeight = 0;
+  }
 
   get Contents() {
     return contents;

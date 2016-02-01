@@ -8,4 +8,4 @@ engine = {
 console.log(Mobile.Name)
 
 x = new Mobile('Gar');
-x.Say('hi')
+x.Say('Hi!')

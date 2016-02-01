@@ -7,6 +7,7 @@ var AccessLevel = [
 ];
 
 class Entity {
+
   constructor() {
     this.Name = ''; // Name string of the entity
     this.Description = ''; // Basic description
