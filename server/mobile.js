@@ -12,7 +12,7 @@ ResistanceType = {
   Energy
 }
 
-Mobile = function() {
+class Mobile {
 
   this.Name = '';
 
@@ -33,8 +33,19 @@ Mobile = function() {
   this.Y = 0;
   this.Z = 0;
 
+  static Distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+
+    return Math.sqrt(dx*dx + dy*dy);
+  }
+
   get Location = function() {
     return {this.X, this.Y, this.Z}
   };
+
+  Say(message) {
+    console.log(this.Name + 'says "' + message + '"')
+  }
 
 }

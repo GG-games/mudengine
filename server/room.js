@@ -11,7 +11,7 @@ roomFlags: [
   NOMAGIC,
 ]
 
-Room = function() {
+class Room {
   this.ID = 0;
   this.ZoneID = 0;
   this.Type = 0;
