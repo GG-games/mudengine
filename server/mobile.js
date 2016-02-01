@@ -12,9 +12,7 @@ ResistanceType = {
   Energy
 }
 
-class Mobile {
-
-  this.Name = '';
+class Mobile extends Entity {
 
   this.Race = Race.Human;
 
