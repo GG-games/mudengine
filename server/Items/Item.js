@@ -1,6 +1,6 @@
 'use strict';
 
-var GameObject = require('./object');
+var GameObject = require('GameObject');
 
 class Item extends GameObject {
 

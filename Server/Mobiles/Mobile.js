@@ -1,6 +1,6 @@
 'use strict';
 
-var Entity = require('./entity'),
+var Entity = require('Entity'),
 
 Race = [
   'Human',
@@ -50,8 +50,16 @@ class Mobile extends Entity {
     return Math.sqrt(dx*dx + dy*dy);
   }
 
+  static Distance3D(a, b) {
+    const dx = a.X - b.X;
+    const dy = a.Y - b.Y;
+    const dz = a.Z - b.Z;
+
+    return Math.sqrt(dx*dx + dy*dy + dz*dz);
+  }
+
   DistanceTo(target) {
-    return Mobile.Distance(this, target);
+    return Mobile.Distance3D(this, target);
   }
 
   Location() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Entity = require('./entity');
+var Entity = require('Entity');
 
 RoomFlags: [
   'DARK', // Probably remove this for light level instead

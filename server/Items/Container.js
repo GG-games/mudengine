@@ -1,6 +1,6 @@
 'use strict';
 
-var Item = requre('./item');
+var Item = requre('Item');
 
 class Container extends Item {
 
