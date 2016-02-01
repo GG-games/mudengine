@@ -1,3 +1,7 @@
+'use strict';
+
+var Item = requre('./item');
+
 class Container extends Item {
   this.contents = [];
   this.MaxItems = 10;
@@ -44,3 +48,5 @@ class Container extends Item {
     }
   }
 }
+
+module.exports = Container;

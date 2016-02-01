@@ -1,8 +1,22 @@
+'use strict';
+
+var AccessLevel = [
+  'All',
+  'Player',
+  'GameMaster'
+];
+
 class Entity {
-  this.Name = '';
-  this.Description = '';
+  constructor() {
+    this.Name = ''; // Name string of the entity
+    this.Description = ''; // Basic description
+    this.ExtraDescription = ''; // For more detailed examination
+
+    this.AccessLevel = AccessLevel.All;
+  }
 
   Look(from) {
+    // Returns the description of the entity
     return this.Description;
   }
 
@@ -10,3 +24,5 @@ class Entity {
     return this.Name;
   }
 }
+
+module.exports = Entity;

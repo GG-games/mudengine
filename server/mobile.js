@@ -1,48 +1,67 @@
-Race = {
-  Human: 0,
-  Elf: 1
-}
+'use strict';
 
-ResistanceType = {
-  Physical,
-  Fire,
-  Cold,
-  Poison,
-  Energy
-}
+var Entity = require('./entity'),
+
+Race = [
+  'Human',
+  'Elf'
+],
+
+ResistanceType = [
+  'Physical',
+  'Fire',
+  'Cold',
+  'Poison',
+  'Energy'
+];
 
 class Mobile extends Entity {
 
-  this.Race = Race.Human;
+  constructor(name) {
+    super();
 
-  this.Stats = [];
-  this.Skills = [];
+    if (name) {
+      this.Name = name;
+    }
 
-  this.Hunger = 0;
-  this.Thirst = 0;
+    this.Race = Race.Human;
 
-  this.Hidden = false;
-  this.Paralyzed = false;
+    this.Stats = [];
+    this.Skills = [];
 
-  this.Inventory = null;
+    this.Hunger = 0;
+    this.Thirst = 0;
 
-  this.X = 0;
-  this.Y = 0;
-  this.Z = 0;
+    this.Hidden = false;
+    this.Paralyzed = false;
+
+    this.Inventory = null;
+
+    this.X = 0;
+    this.Y = 0;
+    this.Z = 0;
+
+  }
 
   static Distance(a, b) {
-    const dx = a.x - b.x;
-    const dy = a.y - b.y;
+    const dx = a.X - b.X;
+    const dy = a.Y - b.Y;
 
     return Math.sqrt(dx*dx + dy*dy);
   }
 
-  get Location = function() {
-    return {this.X, this.Y, this.Z}
+  DistanceTo(target) {
+    return Mobile.Distance(this, target);
+  }
+
+  Location() {
+    // return {this.X, this.Y, this.Z}
   };
 
   Say(message) {
-    console.log(this.Name + 'says "' + message + '"')
+    console.log(this.Name + ' says "' + message + '"')
   }
 
 }
+
+module.exports = Mobile;

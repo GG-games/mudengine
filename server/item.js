@@ -1,3 +1,7 @@
+'use strict';
+
+var GameObject = require('./object');
+
 class Item extends GameObject {
   this.Amount = 0;
   this.Parent = null;
@@ -22,3 +26,5 @@ class Item extends GameObject {
     return false;
   }
 }
+
+module.exports = Item;

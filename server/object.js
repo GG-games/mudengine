@@ -1,3 +1,7 @@
+'use strict';
+
+var Entity = require('./entity');
+
 class GameObject extends Entity {
   this.Weight = 0;
   this.Light = 0;
@@ -7,3 +11,5 @@ class GameObject extends Entity {
 
   }
 }
+
+module.exports = GameObject;
