@@ -1,8 +1,9 @@
 'use strict';
 
-var GameObject = require_local('GameObject');
+var GameObject = require_local('GameObject'),
+  pluralize = require('pluralize');
 
-class Item extends GameObject {
+class BaseItem extends GameObject {
 
   constructor() {
     super();
@@ -47,6 +48,13 @@ class Item extends GameObject {
     }
   }
 
+  DisplayName() {
+    if (this.Amount === 1) {
+      return 'a ' + pluralize(this.Name, 1);
+    }
+    return pluralize(this.Name, this.Amount, true);
+  }
+
   IsAccessibleTo(mobile) {
     return true;
   }
@@ -67,4 +75,6 @@ class Item extends GameObject {
   }
 }
 
-module.exports = Item;
+module.exports = {
+  BaseItem: BaseItem
+};

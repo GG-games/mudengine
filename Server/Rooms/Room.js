@@ -2,17 +2,19 @@
 
 var Entity = require_local('Entity');
 
-RoomFlags: [
-  'DARK', // Probably remove this for light level instead
-  'INDOORS', // Weather, etc. won't apply here
-  'SOUNDPROOF', // Combat, yelling, etc. can't be heard outside of this room
+RoomFlags: {
+  // Basic Flags
+  'INDOORS': 0, // Weather, etc. won't apply here
+  'SOUNDPROOF': 1, // Combat, yelling, etc. cannot be heard outside of this room
 
-  'PRIVATE', //
-  'HOUSE', // Player owned home
-  'PEACEFUL', // No combat can take place here
-  'NOMOB', // NPCs can't enter
-  'NOMAGIC', // No magic can be used here
-]
+  // Restriction Flags
+  'PEACEFUL': 10, // combat cannot take place here
+  'NOMOB': 11, // NPCs cannot enter this room
+  'NOMAGIC': 12, // magic cannot be used here
+
+  // Special Flags
+  'HOUSE': 20, // Player owned home
+}
 
 class Room extends Entity {
 

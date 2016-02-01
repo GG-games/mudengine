@@ -2,7 +2,7 @@
 
 var Item = require_local('Items/Item');
 
-class Container extends Item {
+class Container extends Item.BaseItem {
 
   constructor() {
     super();
@@ -14,6 +14,12 @@ class Container extends Item {
 
   get Contents() {
     return contents;
+  }
+
+  ConsumeTotal(items, amount) {
+    for (i=0; i<= items.length; i++) {
+
+    }
   }
 
   AddItem(item) {

@@ -1,10 +1,6 @@
 'use strict';
 
-var AccessLevel = [
-  'All',
-  'Player',
-  'GameMaster'
-];
+var AccessLevel = require_local('Mobiles/AccessLevel');
 
 class Entity {
 
@@ -16,12 +12,16 @@ class Entity {
     this.LongDescrption = '';
     this.ExtraDescription = ''; // For more detailed examination
 
-    this.AccessLevel = AccessLevel.All;
+    this.AccessLevel = AccessLevel.NPC;
   }
 
   Look(from) {
     // Returns the description of the entity
     return this.Description;
+  }
+
+  DisplayName() {
+    return this.Name;
   }
 
   toString() {

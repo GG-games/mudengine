@@ -1,15 +1,20 @@
 'use strict';
 
-var Mobile = require_local('Mobile');
+var Mobile = require_local('Mobile'),
+  AccessLevel = require_local('Mobiles/AccessLevel');
 
-class PlayerMobile extends Mobile {
+class PlayerMobile extends Mobile.BaseMobile {
 
   constructor() {
     super();
 
     this.Age = 0;
-    this.Title = '';
     this.Password = '';
+    this.AccessLevel = AccessLevel.Player;
+  }
+
+  get Player() {
+    return true;
   }
 
 }

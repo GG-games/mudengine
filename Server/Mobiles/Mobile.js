@@ -1,21 +1,27 @@
 'use strict';
 
 var Entity = require_local('Entity'),
+  AccessLevel = require_local('Mobiles/AccessLevel'),
 
-Race = [
-  'Human',
-  'Elf'
-],
+Race = {
+  'Human': 0,
+  'Elf': 1
+},
 
-ResistanceType = [
-  'Physical',
-  'Fire',
-  'Cold',
-  'Poison',
-  'Energy'
-];
+ResistanceType = {
+  // Physical
+  'Bash': 0,
+  'Slash': 1,
+  'Pierce': 2,
 
-class Mobile extends Entity {
+  // Magical
+  'Fire': 10,
+  'Cold': 11,
+  'Poison': 12,
+  'Energy': 13
+};
+
+class BaseMobile extends Entity {
 
   constructor(name) {
     super();
@@ -24,8 +30,12 @@ class Mobile extends Entity {
       this.Name = name;
     }
 
-    this.Race = Race.Human;
+    this.Dead = false;
     this.Female = false;
+    this.Hidden = false;
+    this.Paralyzed = false;
+
+    this.Title = '';
 
     this.Stats = [];
     this.Skills = [];
@@ -36,8 +46,7 @@ class Mobile extends Entity {
     this.Weight = 0;
     this.Height = 0;
 
-    this.Hidden = false;
-    this.Paralyzed = false;
+    this.Race = Race.Human;
 
     this.Inventory = null;
 
@@ -62,6 +71,14 @@ class Mobile extends Entity {
     return Math.sqrt(dx*dx + dy*dy + dz*dz);
   }
 
+  get Player() {
+    return false;
+  }
+
+  IsAlive() {
+    return !this.Dead;
+  }
+
   DistanceTo(target) {
     return Mobile.Distance3D(this, target);
   }
@@ -76,4 +93,8 @@ class Mobile extends Entity {
 
 }
 
-module.exports = Mobile;
+module.exports = {
+  Race: Race,
+  ResistanceType: ResistanceType,
+  BaseMobile: BaseMobile
+};
