@@ -1,6 +1,6 @@
 var socket = io();
 var messages = document.getElementById('messages');
 
-socket.on('chat message', function(msg){
+socket.on('chat', function(msg){
   messages.innerHTML += '<li>' + msg + '</li>';
 });

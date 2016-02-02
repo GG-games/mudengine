@@ -1,30 +1,33 @@
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var settings = {
+    port: 8080,
+    debug: true,
+
+    pg: {
+      user: '',
+      pass: '',
+      host: 'localhost',
+      db: ''
+    }
+  },
+
+  util = require('util'),
+  express = require('express'),
+  app = express(),
+  http = require('http').Server(app),
+  io = require('socket.io')(http),
+  Engine = require('./Server/Engine'),
+  pg = require('pg'),
+  conString = util.format('postgres://%s:%s@%s/@s', settings.pg.user, settings.pg.pass, settings.pg.host, settings.pg.db);
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 app.use(express.static('public'));
 
-io.on('connection', function(socket){
-  console.log('a user connected');
 
-  socket.on('chat', function(msg){
-    console.log('message: ' + msg);
-
-    io.emit('chat', msg);
-  });
-
-  socket.on('command', function(msg){
-    console.log('command: ' + msg);
-  });
-
-
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
+io.on('connection', function(socket) {
+  // var db = new pg.Client(conString);
+  // Engine.Listener(socket, io, db);
 });
 
 

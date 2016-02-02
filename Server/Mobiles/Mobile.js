@@ -84,7 +84,7 @@ class BaseMobile extends Entity {
   }
 
   Location() {
-    // return {this.X, this.Y, this.Z}
+    return {'X': this.X, 'Y': this.Y, 'Z': this.Z}
   };
 
   Say(message) {
@@ -93,8 +93,4 @@ class BaseMobile extends Entity {
 
 }
 
-module.exports = {
-  Race: Race,
-  ResistanceType: ResistanceType,
-  BaseMobile: BaseMobile
-};
+module.exports = BaseMobile;

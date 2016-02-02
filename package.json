@@ -4,6 +4,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.13.4",
+    "pg": "^4.4.4",
     "pluralize": "^1.2.1",
     "socket.io": "^1.4.5"
   }

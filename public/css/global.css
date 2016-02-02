@@ -10,7 +10,46 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-form {
+.login {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 150px;
+  width: 350px;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 13px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+.login input[type=text],
+.login input[type=password] {
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  color: #666;
+}
+.login input[type=button] {
+  background: #eee;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+.login input[type=button]:hover {
+  background: #ddd;
+  transition: background 0.5s;
+}
+.login input:focus {
+  color: #333;
+}
+
+.footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -18,14 +57,14 @@ form {
   padding: 3px;
 }
 
-form input[type=text] {
+.footer input[type=text] {
   border: 0;
   padding: 10px;
   width: 90%;
   margin-right: .5%;
 }
 
-form input[type=button] {
+.footer input[type=button] {
   width: 9%;
   background: #dedede;
   border: none;
