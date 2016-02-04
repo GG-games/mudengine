@@ -1,6 +1,6 @@
 'use strict';
 
-class User {
+class Client {
 
   constructor() {
     this.Username = '';
@@ -9,6 +9,10 @@ class User {
     this.Registration = '';
     this.Inactive = false;
     this.Playermobile = null;
+    this.IPAddress = '';
+    this.Browser = '';
+    this.DBClient = null;
+    this.Socket = null;
   }
 
   Login() {
@@ -17,4 +21,4 @@ class User {
 
 }
 
-module.exports = GameObject;
+module.exports = Client;

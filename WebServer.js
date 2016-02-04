@@ -1,23 +1,9 @@
-var settings = {
-    port: 8080,
-    debug: true,
-
-    pg: {
-      user: '',
-      pass: '',
-      host: 'localhost',
-      db: ''
-    }
-  },
-
-  util = require('util'),
+var util = require('util'),
   express = require('express'),
   app = express(),
   http = require('http').Server(app),
   io = require('socket.io')(http),
-  Engine = require('./Server/Engine'),
-  pg = require('pg'),
-  conString = util.format('postgres://%s:%s@%s/@s', settings.pg.user, settings.pg.pass, settings.pg.host, settings.pg.db);
+  Engine = require('./Server/Engine');
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -25,9 +11,12 @@ app.get('/', function(req, res){
 app.use(express.static('public'));
 
 
+Engine.io = io;
+Engine.database = pg;
+
 io.on('connection', function(socket) {
   // var db = new pg.Client(conString);
-  // Engine.Listener(socket, io, db);
+  // Engine.Listener(socket, db);
 });
 
 
