@@ -1,8 +1,8 @@
 'use strict';
 
-var Item = require_local('Items/Item');
+var BaseItem = require_local('Items/BaseItem');
 
-class Gold extends Item.BaseItem {
+class Gold extends BaseItem {
 
   constructor(amount) {
     amount = amount || 1;

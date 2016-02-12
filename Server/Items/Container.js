@@ -1,8 +1,8 @@
 'use strict';
 
-var Item = require_local('Items/Item');
+var BaseItem = require_local('Items/Item');
 
-class Container extends Item.BaseItem {
+class Container extends BaseItem {
 
   constructor() {
     super();

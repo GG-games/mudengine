@@ -16,6 +16,17 @@ RoomFlags: {
   'HOUSE': 20, // Player owned home
 }
 
+Directions: {
+  'north': 0,
+  'south': 1,
+  'east',
+  'west',
+  'northeast',
+  'northwest',
+  'southeast',
+  'southwest'
+}
+
 class Room extends Entity {
 
   constructor() {
@@ -28,12 +39,54 @@ class Room extends Entity {
 
     this.Flags = []; // All RoomFlags applied to this room
 
-    this.Exits = []; // Defines connections to other rooms
+    this.Exits = {}; // Defines connections to other rooms
 
     this.AccessLevel = AccessLevel.All; // Defines who can access this room. Set to GameMaster to prevent players from entering.
 
     this.Objects = []; // Objects in the room
     this.Mobiles = []; // (N)PCs in the room
+  }
+
+  CheckMove(mobile, direction) {
+    var exit;
+
+    if (mobile == null || !(mobile instanceof BaseMobile)) {
+      return false;
+    }
+    if (!mobile.CanMove) {
+      return false;
+    }
+    if (!this.HasExit(direction)) {
+      return false;
+    }
+
+    exit = this.GetExit(direction);
+    if (this.CanAccess(mobile, exit))
+
+    return false;
+  }
+
+  GetExit(direction) {
+    return this.Exits[direction];
+  }
+
+  HasExit(direction) {
+    if (GetExit(direction) != undefined) {
+      return true;
+    }
+
+    return false;
+  }
+
+  CanAccess(mobile, exit) {
+    if (exit.AccessLevel > mobile.AccessLevel) {
+      return false;
+    }
+    if (exit.Locked == true) {
+      return false;
+    }
+
+    return true;
   }
 
 }

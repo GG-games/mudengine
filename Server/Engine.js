@@ -2,12 +2,12 @@ global.require_local = function(name) {
   return require(__dirname + '/' + name);
 }
 global.require_local_dir = function(name) {
-  return require(__dirname + '/' + name);
+  return require(__dirname + '/' + name + '/' + name);
 }
 
 var util = require('util'),
   Client = require_local('Client'),
-  BaseMobile = require_local('Mobiles/Mobile'),
+  Mobiles = require_local_dir('Mobiles'),
   Item = require_local('Items/Item'),
   Gold = require_local('Items/Gold'),
   Container = require_local('Items/Container')
@@ -17,9 +17,9 @@ var util = require('util'),
 Engine = {
   io: null,
   db: null,
-  clients = [],
-  timer = null,
-  settings = {
+  clients: [],
+  timer: null,
+  settings: {
     port: 8080,
     debug: true,
 
@@ -33,20 +33,20 @@ Engine = {
 
   Database: function() {
     util.format('postgres://%s:%s@%s/@s', settings.pg.user, settings.pg.pass, settings.pg.host, settings.pg.db);
-  }
+  },
 
   StartTimer: function() {
     Engine.timer = setInterval(Engine.Tick, 100);
-  }
+  },
 
   StopTimer: function() {
     Engine.timer.stop();
     Engine.timer = null;
-  }
+  },
 
   Tick: function() {
 
-  }
+  },
 
   Log: function() {
 
@@ -110,7 +110,7 @@ Engine = {
     var z = new Gold();
     var z2 = new Gold(100);
 
-    var m = new BaseMobile('Gar');
+    var m = new Mobiles.BaseMobile('Gar');
     console.log(m.AccessLevel);
     m.Say('Hi!');
   }

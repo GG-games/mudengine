@@ -1,6 +1,6 @@
 'use strict';
 
-var BaseMobile = require_local('Mobile'),
+var BaseMobile = require_local('Mobiles/BaseMobile'),
   AccessLevel = require_local('Mobiles/AccessLevel');
 
 class PlayerMobile extends BaseMobile {

@@ -75,6 +75,4 @@ class BaseItem extends GameObject {
   }
 }
 
-module.exports = {
-  BaseItem: BaseItem
-};
+module.exports = BaseItem;
